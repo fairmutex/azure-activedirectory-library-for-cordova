@@ -112,8 +112,11 @@ AuthenticationContext.prototype.acquireTokenSilentAsync = function (resourceUrl,
 
     bridge.executeNativeMethod('acquireTokenSilentAsync', [this.authority, this.validateAuthority, resourceUrl, clientId, userId])
     .then(function(authResult){
+        alert("LIB:Success:"+JSON.Stringify(authResult));
         d.resolve(new AuthenticationResult(authResult));
     }, function(err) {
+        alert("LIB:Fail:"+JSON.Stringify(err));
+        
         d.reject(err);
     });
 
